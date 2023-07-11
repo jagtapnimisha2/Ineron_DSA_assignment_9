@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findMaxElement(arr) {
+  return findMaxHelper(arr, 0, -Infinity);
+}
+
+function findMaxHelper(arr, index, currentMax) {
+  if (index === arr.length) {
+    return currentMax;
+  }
+
+  if (arr[index] > currentMax) {
+    currentMax = arr[index];
+  }
+
+  return findMaxHelper(arr, index + 1, currentMax);
+}
+
+console.log(findMaxElement([1, 4, 3, -5, -4, 8, 6]));
+console.log(findMaxElement([1, 4, 45, 6, 10, -8]));
+
+    </script>
+</body>
+</html>

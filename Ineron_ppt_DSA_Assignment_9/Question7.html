@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function printPermutations(S) {
+  const result = [];
+  const used = new Array(S.length).fill(false);
+  const current = [];
+
+  backtrack(S, used, current, result);
+
+  return result;
+}
+
+function backtrack(S, used, current, result) {
+  if (current.length === S.length) {
+    result.push(current.join(''));
+    return;
+  }
+
+  for (let i = 0; i < S.length; i++) {
+    if (!used[i]) {
+      used[i] = true;
+      current.push(S[i]);
+
+      backtrack(S, used, current, result);
+
+      used[i] = false;
+      current.pop();
+    }
+  }
+}
+console.log(printPermutations("ABC"));
+console.log(printPermutations("XY"));
+    </script>
+</body>
+</html>
